@@ -1,0 +1,26 @@
+[
+  [
+    { "az": "Kardioloq", "en": "Cardiologist", "ru": "Кардиолог" },
+    { "az": "Cərrah", "en": "Surgeon", "ru": "Хирург" },
+    { "az": "Ortoped", "en": "Orthopaedist", "ru": "Ортопед" },
+    { "az": "Pediatr", "en": "Paediatrician", "ru": "Педиатр" },
+    { "az": "Nevroloq", "en": "Neurologist", "ru": "Невролог" },
+    { "az": "Endokrinoloq", "en": "Endocrinologist", "ru": "Эндокринолог" }
+  ],
+  [
+    { "az": "Səhiyyə rəhbəri", "en": "Healthcare leader", "ru": "Руководитель здравоохранения" },
+    { "az": "Tədqiqatçı", "en": "Researcher", "ru": "Исследователь" },
+    { "az": "Psixoloq", "en": "Psychologist", "ru": "Психолог" },
+    { "az": "Dietoloq", "en": "Dietitian", "ru": "Диетолог" },
+    { "az": "Stomatoloq", "en": "Dentist", "ru": "Стоматолог" },
+    { "az": "Dermatoloq", "en": "Dermatologist", "ru": "Дерматолог" }
+  ],
+  [
+    { "az": "Maliyyə mütəxəssisi", "en": "Finance specialist", "ru": "Финансовый специалист" },
+    { "az": "İdarəetmə eksperti", "en": "Management expert", "ru": "Эксперт по управлению" },
+    { "az": "Səhiyyə siyasəti", "en": "Health policy", "ru": "Политика здравоохранения" },
+    { "az": "Rəqəmsal səhiyyə", "en": "Digital health", "ru": "Цифровое здравоохранение" },
+    { "az": "İnnovasiya", "en": "Innovation", "ru": "Инновации" },
+    { "az": "Biznes", "en": "Business", "ru": "Бизнес" }
+  ]
+]

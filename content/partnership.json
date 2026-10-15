@@ -1,0 +1,32 @@
+{
+  "directions": [
+    {
+      "az": "Rəsmi istehsal və xidmət tərəfdaşlığı",
+      "en": "Official production and service partnership",
+      "ru": "Официальное производственное и сервисное партнёрство"
+    },
+    { "az": "Epizod və layihə sponsorluğu", "en": "Episode and project sponsorship", "ru": "Спонсорство выпусков и проектов" },
+    {
+      "az": "Brend inteqrasiyası və kontent əməkdaşlığı",
+      "en": "Brand integration and content collaboration",
+      "ru": "Интеграция бренда и контентное сотрудничество"
+    },
+    { "az": "Məhsul və xidmətlərin təqdimatı", "en": "Product and service showcases", "ru": "Презентация продуктов и услуг" },
+    { "az": "Uzunmüddətli strateji tərəfdaşlıqlar", "en": "Long-term strategic partnerships", "ru": "Долгосрочные стратегические партнёрства" }
+  ],
+  "categories": [
+    { "icon": "shirt", "label": { "az": "Geyim", "en": "Apparel", "ru": "Одежда" } },
+    { "icon": "sparkles", "label": { "az": "Makiyaj və saç düzümü", "en": "Make-up and hair styling", "ru": "Макияж и укладка" } },
+    { "icon": "video", "label": { "az": "İstehsal studiyası", "en": "Production studio", "ru": "Продакшн-студия" } },
+    { "icon": "heart", "label": { "az": "Səhiyyə texnologiyaları", "en": "Health technology", "ru": "Медицинские технологии" } },
+    { "icon": "leaf", "label": { "az": "Wellness", "en": "Wellness", "ru": "Wellness" } },
+    { "icon": "education", "label": { "az": "Təhsil", "en": "Education", "ru": "Образование" } }
+  ],
+  "partners": [
+    {
+      "name": "Y Pod",
+      "logo": "",
+      "role": { "az": "İstehsal studiyası", "en": "Production studio", "ru": "Продакшн-студия" }
+    }
+  ]
+}

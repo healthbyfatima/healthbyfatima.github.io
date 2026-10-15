@@ -1,0 +1,141 @@
+{
+  "currency": "AZN",
+  "packages": [
+    {
+      "id": "podcast",
+      "price": 500,
+      "eyebrow": { "az": "Paket 01 · Əsas paket", "en": "Package 01 · Core package", "ru": "Пакет 01 · Основной пакет" },
+      "badge": { "az": "Bir buraxılış", "en": "One episode", "ru": "Один выпуск" },
+      "title": { "az": "Health by Fatima Podcast", "en": "Health by Fatima Podcast", "ru": "Health by Fatima Podcast" },
+      "priceNote": { "az": "/ bir buraxılış", "en": "/ per episode", "ru": "/ за выпуск" },
+      "items": {
+        "az": [
+          "Dr. Fatimə Nuriyeva ilə podcast müsahibəsinin çəkilişi",
+          "Tam podcast buraxılışının montajı və YouTube kanalında yayımlanması",
+          "YouTube üçün teaser video",
+          "@healthbyfatima Instagram hesabında həkim və Dr. Fatimə Nuriyeva ilə ortaq (collab) paylaşım",
+          "Podcastdan hazırlanan 1 teaser və 3 Reels — Instagram-da paylaşım",
+          "Çəkiliş prosesindən backstage kontenti",
+          "@healthbyfatima hesabında Stories paylaşımları"
+        ],
+        "en": [
+          "Recording of a podcast interview with Dr. Fatima Nuriyeva",
+          "Editing of the full podcast episode and publication on the YouTube channel",
+          "Teaser video for YouTube",
+          "Joint (collab) post with the doctor and Dr. Fatima Nuriyeva on the @healthbyfatima Instagram account",
+          "1 teaser and 3 Reels cut from the podcast — published on Instagram",
+          "Behind-the-scenes content from the shoot",
+          "Stories on the @healthbyfatima account"
+        ],
+        "ru": [
+          "Запись подкаст-интервью с доктором Фатимой Нуриевой",
+          "Монтаж полного выпуска подкаста и публикация на YouTube-канале",
+          "Тизер-видео для YouTube",
+          "Совместная (collab) публикация врача и доктора Фатимы Нуриевой в Instagram-аккаунте @healthbyfatima",
+          "1 тизер и 3 Reels по материалам подкаста — публикация в Instagram",
+          "Бэкстейдж-контент со съёмок",
+          "Публикации в Stories аккаунта @healthbyfatima"
+        ]
+      },
+      "cta": { "az": "Bu paketi seç", "en": "Choose this package", "ru": "Выбрать этот пакет" }
+    },
+    {
+      "id": "spotlight",
+      "price": 300,
+      "eyebrow": { "az": "Paket 02 · Əlavə xidmət", "en": "Package 02 · Add-on service", "ru": "Пакет 02 · Дополнительная услуга" },
+      "badge": { "az": "Ayrıca sifariş", "en": "Ordered separately", "ru": "Заказывается отдельно" },
+      "title": {
+        "az": "Doctor Spotlight — fərdi həkim tanıtımı",
+        "en": "Doctor Spotlight — individual doctor profile",
+        "ru": "Doctor Spotlight — персональная презентация врача"
+      },
+      "items": {
+        "az": [
+          "Həkim, onun təcrübəsi və fəaliyyət istiqaməti haqqında qısa video-reportaj",
+          "Həkimin iş mühitində və ya razılaşdırılmış məkanda çəkiliş",
+          "Montaj və YouTube üçün hazırlanma",
+          "Yekun video həkimə şəxsi istifadə və paylaşım üçün verilir"
+        ],
+        "en": [
+          "A short video report about the doctor, their experience and field of practice",
+          "Filmed at the doctor’s workplace or an agreed location",
+          "Editing and preparation for YouTube",
+          "The final video is handed to the doctor for personal use and sharing"
+        ],
+        "ru": [
+          "Короткий видеорепортаж о враче, его опыте и направлении деятельности",
+          "Съёмка на рабочем месте врача или в согласованной локации",
+          "Монтаж и подготовка для YouTube",
+          "Готовое видео передаётся врачу для личного использования и публикации"
+        ]
+      },
+      "note": {
+        "az": "Əsas paketə daxil deyil, ayrıca sifariş olunur.",
+        "en": "Not included in the core package; ordered separately.",
+        "ru": "Не входит в основной пакет, заказывается отдельно."
+      },
+      "cta": { "az": "Spotlight əlavə et", "en": "Add Spotlight", "ru": "Добавить Spotlight" }
+    }
+  ],
+  "bundlePrice": 800,
+  "comparison": [
+    { "label": { "az": "Podcast müsahibəsi", "en": "Podcast interview", "ru": "Подкаст-интервью" }, "podcast": true, "bundle": true },
+    { "label": { "az": "Tam YouTube buraxılışı", "en": "Full YouTube episode", "ru": "Полный выпуск на YouTube" }, "podcast": true, "bundle": true },
+    { "label": { "az": "YouTube teaser video", "en": "YouTube teaser video", "ru": "Тизер-видео для YouTube" }, "podcast": true, "bundle": true },
+    {
+      "label": { "az": "Instagram collab paylaşım (@healthbyfatima)", "en": "Instagram collab post (@healthbyfatima)", "ru": "Collab-публикация в Instagram (@healthbyfatima)" },
+      "podcast": true,
+      "bundle": true
+    },
+    { "label": { "az": "Teaser və 3 Reels", "en": "Teaser and 3 Reels", "ru": "Тизер и 3 Reels" }, "podcast": true, "bundle": true },
+    { "label": { "az": "Backstage və Stories", "en": "Behind the scenes and Stories", "ru": "Бэкстейдж и Stories" }, "podcast": true, "bundle": true },
+    { "label": { "az": "Fərdi həkim tanıtımı", "en": "Individual doctor profile", "ru": "Персональная презентация врача" }, "podcast": false, "bundle": true }
+  ],
+  "format": [
+    {
+      "icon": "clock",
+      "label": { "az": "Müddət", "en": "Duration", "ru": "Длительность" },
+      "value": { "az": "Maksimum 1 saat", "en": "Up to 1 hour", "ru": "Не более 1 часа" }
+    },
+    {
+      "icon": "message",
+      "label": { "az": "Format", "en": "Format", "ru": "Формат" },
+      "value": {
+        "az": "Dr. Fatimə Nuriyeva ilə müsahibə və müzakirə",
+        "en": "Interview and discussion with Dr. Fatima Nuriyeva",
+        "ru": "Интервью и беседа с доктором Фатимой Нуриевой"
+      }
+    },
+    {
+      "icon": "list",
+      "label": { "az": "Suallar", "en": "Questions", "ru": "Вопросы" },
+      "value": {
+        "az": "10 sual, əvvəlcədən birlikdə razılaşdırılır",
+        "en": "10 questions, agreed together in advance",
+        "ru": "10 вопросов, согласованных заранее"
+      }
+    },
+    {
+      "icon": "mic",
+      "label": { "az": "Məkan", "en": "Location", "ru": "Место" },
+      "value": { "az": "Peşəkar podcast studiyası", "en": "Professional podcast studio", "ru": "Профессиональная подкаст-студия" }
+    }
+  ],
+  "terms": {
+    "az": [
+      "Başlanğıc qiymətləri layihənin ilkin mərhələsi üçün keçərlidir.",
+      "Yalnız podcast paketini və ya hər iki xidməti seçmək olar.",
+      "Çəkiliş tarixi, mövzular, suallar və paylaşım formatı əvvəlcədən razılaşdırılır."
+    ],
+    "en": [
+      "Introductory prices apply to the project’s early stage.",
+      "You can choose the podcast package alone or both services.",
+      "The recording date, topics, questions and publishing format are agreed in advance."
+    ],
+    "ru": [
+      "Стартовые цены действуют на начальном этапе проекта.",
+      "Можно выбрать только подкаст-пакет или обе услуги.",
+      "Дата съёмки, темы, вопросы и формат публикаций согласовываются заранее."
+    ]
+  }
+}

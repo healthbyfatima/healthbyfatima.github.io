@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+.env
+.env.local
+.DS_Store
+next-env.d.ts
+*.tsbuildinfo
+
+# internal working docs — kept locally, not in the public repo
+PROMPT.md
+DESIGN_BRIEF.md
+CLAUDE_CODE_PROMPT.md
+README.txt
+AGENTS.md
+docs/

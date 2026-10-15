@@ -1,0 +1,26 @@
+[
+  {
+    "youtubeId": "",
+    "title": "",
+    "guestSlug": "guest-1",
+    "topics": ["clinical"],
+    "date": "",
+    "sponsored": false
+  },
+  {
+    "youtubeId": "",
+    "title": "",
+    "guestSlug": "guest-3",
+    "topics": ["management"],
+    "date": "",
+    "sponsored": true
+  },
+  {
+    "youtubeId": "",
+    "title": "",
+    "guestSlug": "guest-4",
+    "topics": ["tech"],
+    "date": "",
+    "sponsored": false
+  }
+]
