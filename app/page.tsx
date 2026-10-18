@@ -8,6 +8,9 @@ export default function RootRedirect() {
       <head>
         <meta httpEquiv="refresh" content={`0; url=${target}`} />
         <link rel="canonical" href={target} />
+        <script dangerouslySetInnerHTML={{ __html: `location.replace(${JSON.stringify(target)})` }} />
+        {/* Fallback link stays invisible unless the redirect stalls */}
+        <style>{'a{opacity:0;animation:show 0s 2s forwards}@keyframes show{to{opacity:1}}'}</style>
       </head>
       <body style={{ background: '#05070F' }}>
         <a href={target} style={{ color: '#FFFFFF' }}>
