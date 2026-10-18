@@ -1,7 +1,7 @@
 /** Forms do nothing on submit until e-mail + Telegram delivery is connected. */
 export const FORMS_ENABLED = false;
 
-export type FormKind = 'A' | 'guest' | 'pkg' | 'B' | 'C';
+export type FormKind = 'A' | 'pkg' | 'B';
 
 /**
  * Placeholder sender — the forms are UI-only for now.

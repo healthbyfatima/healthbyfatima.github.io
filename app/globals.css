@@ -46,6 +46,9 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   html,
   body {
     margin: 0;
@@ -452,20 +455,6 @@
     min-height: 28px;
     padding: 4px 12px;
     font-size: 12px;
-  }
-  .tag-sponsored {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    height: 28px;
-    padding: 0 12px;
-    border-radius: var(--pill);
-    background: var(--text);
-    color: var(--bg);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
   }
 
   /* ---------- LangSwitch ---------- */
@@ -896,12 +885,6 @@
     stroke: none;
     margin-left: 3px;
   }
-  .ep-thumb .tag-sponsored {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    z-index: 1;
-  }
   .ep-player {
     position: relative;
     aspect-ratio: 16/9;
@@ -1027,18 +1010,6 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-  }
-  .pkg .price {
-    display: flex;
-    align-items: baseline;
-    gap: 4px 8px;
-    flex-wrap: wrap;
-  }
-  .pkg .price b {
-    font-size: 36px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1;
   }
   .pkg .row {
     gap: 8px;
@@ -1738,10 +1709,6 @@
     background-clip: text;
     color: transparent;
   }
-  /* home: 4 guests on phone, full list on Qonaqlarımız */
-  .home-guests > :nth-child(n + 5) {
-    display: none;
-  }
   /* icon category cards: 2 per row on phone, icon above text */
   .cat-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1857,8 +1824,6 @@
     .arrow-btn { width: 48px; height: 48px; }
 
     .pkg { gap: 24px; }
-    .pkg .price { gap: 10px; }
-    .pkg .price b { font-size: 56px; }
     .pkg .row { gap: 12px; }
 
     .table-box { overflow-x: auto; }
@@ -1905,7 +1870,6 @@
     .wide-hero .over { bottom: 56px; }
     .ms { gap: 14px; min-height: 220px; }
     .big404 { font-size: 220px; }
-    .home-guests > :nth-child(n + 5) { display: flex; }
     .cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .cat-grid > .card { flex-direction: row; align-items: center; gap: 16px; padding: 32px; }
     .cat-grid .h4 { font-size: 20px; }
@@ -1921,6 +1885,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {
@@ -1958,5 +1925,58 @@
     transform: translateY(-50%);
     color: var(--text-muted);
     pointer-events: none;
+  }
+}
+
+/* Hero "Əməkdaşlıq üçün müraciət et": two-choice popup */
+@layer components {
+  .cta-menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .cta-pop {
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 20px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    text-align: left;
+  }
+  .cta-pop a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 52px;
+    padding: 10px 16px;
+    border-radius: 14px;
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .cta-pop a:hover,
+  .cta-pop a:focus-visible {
+    background: var(--primary);
+  }
+  @media (width >= 48rem) {
+    .cta-menu {
+      width: auto;
+    }
+    .cta-pop {
+      right: auto;
+      left: 50%;
+      width: 340px;
+      margin-left: -170px;
+    }
   }
 }

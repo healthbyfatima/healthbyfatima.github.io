@@ -1,20 +1,21 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { ArrowRight, Handshake, MessageCircle, Mic, Video } from 'lucide-react';
+import { Handshake, MessageCircle, Video } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { LOGO, ROUTES, SITE } from '@/lib/site';
 import { pageMetadata } from '@/lib/seo';
-import { guestBySlug, guests, latestEpisodes, loc, specialties, TOPICS } from '@/lib/content';
+import { episodeCard, latestEpisodes, loc, specialties, TOPICS } from '@/lib/content';
 import { YoutubeIcon } from '@/components/icons/Social';
 import { ArrowLink, ButtonLink } from '@/components/ui/Button';
 import { CardGlow, IconCircle } from '@/components/ui/Card';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import { FounderBlock } from '@/components/ui/FounderBlock';
 import { SectionHead } from '@/components/ui/Section';
 import { EpisodeCard } from '@/components/ui/EpisodeCard';
-import { GuestCard } from '@/components/ui/GuestCard';
 import { PathCard } from '@/components/ui/PathCard';
 import { Marquee, Orbit, Shield, Tree, VerticalCarousel } from '@/components/home/BentoVisuals';
+import { CollabMenu } from '@/components/home/CollabMenu';
 
 type Props = { params: Promise<{ locale: Locale }> };
 
@@ -29,33 +30,12 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations('Home');
   const tt = await getTranslations('Topics');
-  const tg = await getTranslations('GuestCategory');
-  const tp = await getTranslations('Placeholder');
   const tc = await getTranslations('Common');
   const tn = await getTranslations('Nav');
 
   const topics = TOPICS.map((k) => tt(k));
 
-  const episodes = latestEpisodes(3).map((ep) => {
-    const g = guestBySlug(ep.guestSlug);
-    return {
-      youtubeId: ep.youtubeId,
-      title: ep.title || tp('episodeTitle'),
-      meta: `${g?.name || tp('name')} · ${g?.title || tp('titleShort')}`,
-      topic: tt(ep.topics[0] ?? 'clinical'),
-      sponsored: ep.sponsored
-    };
-  });
-
-  // Desktop shows 8, phone shows 4 (.home-guests hides the rest).
-  const homeGuests = guests.slice(0, 8).map((g) => ({
-    name: g.name || tp('name'),
-    title: g.title || tp('title'),
-    organization: g.organization || tp('organization'),
-    category: tg(g.category),
-    photo: g.photo || undefined,
-    href: `${ROUTES.episodes}?qonaq=${g.slug}`
-  }));
+  const episodes = latestEpisodes(3).map((ep) => episodeCard(ep, (k) => tt(k)));
 
   return (
     <>
@@ -81,14 +61,11 @@ export default async function HomePage({ params }: Props) {
               {t('text')}
             </p>
             <div className="row g12" style={{ justifyContent: 'center', marginTop: 16, width: '100%' }}>
-              <ButtonLink href={ROUTES.episodes} variant="primary">
+              <ButtonLink href="#latest" variant="primary">
                 <YoutubeIcon className="ic" />
                 {t('watch')}
               </ButtonLink>
-              <ButtonLink href={ROUTES.contact}>
-                {tc('cta')}
-                <ArrowRight className="ic sm" aria-hidden />
-              </ButtonLink>
+              <CollabMenu />
             </div>
           </div>
           <div className="topics-line" lang="en">
@@ -104,7 +81,7 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       {/* 2 · Son buraxılışlar */}
-      <section className="section tight" aria-labelledby="latest-h">
+      <section className="section tight" id="latest" aria-labelledby="latest-h">
         <div className="wrap">
           <SectionHead id="latest-h" eyebrow={t('latestEyebrow')} title={t('latestTitle')} action={<ArrowLink href={ROUTES.episodes}>{tc('all')}</ArrowLink>} />
           <div className="grid-3">
@@ -172,19 +149,7 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      {/* 4 · Qonaqlar */}
-      <section className="section tight" aria-labelledby="guests-h">
-        <div className="wrap">
-          <SectionHead id="guests-h" eyebrow={t('guestsEyebrow')} title={t('guestsTitle')} action={<ArrowLink href={ROUTES.guests}>{t('guestsAll')}</ArrowLink>} />
-          <div className="grid-4 keep2 home-guests">
-            {homeGuests.map((g, i) => (
-              <GuestCard key={i} guest={g} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5 · Əməkdaşlıq */}
+      {/* 4 · Əməkdaşlıq */}
       <section className="section" aria-labelledby="collab-h">
         <div className="wrap">
           <SectionHead
@@ -193,18 +158,10 @@ export default async function HomePage({ params }: Props) {
             title={t('collabTitle')}
             action={<ArrowLink href={ROUTES.partnerships}>{t('collabLink')}</ArrowLink>}
           />
-          <div className="grid-3">
-            <PathCard
-              href={ROUTES.beGuest}
-              num="01"
-              icon={<IconCircle><Mic className="ic" aria-hidden /></IconCircle>}
-              title={tn('beGuest')}
-              text={t('pathGuestText')}
-              cta={t('pathGuestCta')}
-            />
+          <div className="grid-2">
             <PathCard
               href={ROUTES.packages}
-              num="02"
+              num="01"
               icon={<IconCircle><Video className="ic" aria-hidden /></IconCircle>}
               title={tn('packages')}
               text={t('pathPackagesText')}
@@ -212,7 +169,7 @@ export default async function HomePage({ params }: Props) {
             />
             <PathCard
               href={ROUTES.brand}
-              num="03"
+              num="02"
               icon={<IconCircle><Handshake className="ic" aria-hidden /></IconCircle>}
               title={tn('brand')}
               text={t('pathBrandText')}
@@ -222,36 +179,14 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      {/* 6 · Qurucu */}
+      {/* 5 · Qurucu */}
       <section className="section tight" aria-labelledby="founder-h">
         <div className="wrap">
-          <div className="grid-2 gap-halves" style={{ ['--gap-halves' as string]: '64px', alignItems: 'center' }}>
-            <div className="photo-frame" style={{ ['--photo-ratio' as string]: '4 / 5', maxWidth: 520 }}>
-              <Image src="/photos/fatima-portrait.webp" alt={tc('founderAlt')} fill sizes="(min-width: 768px) 520px, 100vw" />
-            </div>
-            <div className="stack g20">
-              <Eyebrow>{t('founderEyebrow')}</Eyebrow>
-              <h2 id="founder-h" className="h2">
-                {t('founderName')}
-              </h2>
-              <p className="italic muted" style={{ fontSize: 17 }} lang="en">
-                {t('founderRole')}
-              </p>
-              <p className="body">{t('founderBio')}</p>
-              <ul className="filters" style={{ listStyle: 'none', padding: 0, margin: '4px 0 0' }}>
-                <li className="chip chip-static">{t('founderChip1')}</li>
-                <li className="chip chip-static">{t('founderChip2')}</li>
-                <li className="chip chip-static">{t('founderChip3')}</li>
-              </ul>
-              <div style={{ marginTop: 8 }}>
-                <ArrowLink href={ROUTES.about}>{tc('more')}</ArrowLink>
-              </div>
-            </div>
-          </div>
+          <FounderBlock moreHref={ROUTES.about} />
         </div>
       </section>
 
-      {/* 7 · CTA */}
+      {/* 6 · CTA */}
       <section className="section" aria-labelledby="cta-h">
         <div className="wrap">
           <div className="card card-blue pad-cta" style={{ textAlign: 'center' }}>

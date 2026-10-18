@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
-import { Handshake, Mic, ShieldCheck, Video } from 'lucide-react';
+import { Handshake, Video } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { ROUTES } from '@/lib/site';
 import { pageMetadata } from '@/lib/seo';
-import { ButtonLink } from '@/components/ui/Button';
 import { IconCircle } from '@/components/ui/Card';
 import { CheckList } from '@/components/ui/CheckList';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -23,7 +22,6 @@ export default async function PartnershipsPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations('Partnerships');
   const tn = await getTranslations('Nav');
-  const tc = await getTranslations('Common');
 
   return (
     <>
@@ -42,18 +40,7 @@ export default async function PartnershipsPage({ params }: Props) {
 
       <section className="section tight">
         <div className="wrap">
-          <div className="grid-3">
-            <PathCard
-              href={ROUTES.beGuest}
-              num={t('guestNum')}
-              icon={<IconCircle><Mic className="ic" aria-hidden /></IconCircle>}
-              heading="h2"
-              title={tn('beGuest')}
-              text={t('guestText')}
-              cta={t('guestCta')}
-            >
-              <CheckList items={[t('guestPoint1'), t('guestPoint2')]} />
-            </PathCard>
+          <div className="grid-2">
             <PathCard
               href={ROUTES.packages}
               variant="surface"
@@ -77,23 +64,6 @@ export default async function PartnershipsPage({ params }: Props) {
             >
               <CheckList items={[t('brandPoint1'), t('brandPoint2')]} />
             </PathCard>
-          </div>
-        </div>
-      </section>
-
-      <section className="section tight">
-        <div className="wrap">
-          <div className="card" style={{ display: 'flex', gap: 24, alignItems: 'flex-start', flexWrap: 'wrap' }}>
-            <IconCircle primary>
-              <ShieldCheck className="ic" aria-hidden />
-            </IconCircle>
-            <div className="stack g8" style={{ flex: '1 1 400px' }}>
-              <h2 className="h4">{t('principleTitle')}</h2>
-              <p className="body">{t('principleText')}</p>
-            </div>
-            <ButtonLink href={ROUTES.mediaKit} fit className="self-center">
-              {tc('mediaKit')}
-            </ButtonLink>
           </div>
         </div>
       </section>

@@ -8,8 +8,6 @@ type PackageCardProps = {
   /** Small chip next to the eyebrow, e.g. "Bir buraxılış". */
   badge?: string;
   title: string;
-  price: string;
-  priceNote?: string;
   items?: ReactNode[];
   note?: ReactNode;
   variant?: 'surface' | 'blue';
@@ -23,8 +21,6 @@ export function PackageCard({
   eyebrow,
   badge,
   title,
-  price,
-  priceNote,
   items,
   note,
   variant = 'surface',
@@ -42,10 +38,6 @@ export function PackageCard({
       </div>
       <div className="stack g12">
         <H className="h3">{title}</H>
-        <div className="price">
-          <b>{price}</b>
-          {priceNote && <span style={{ fontWeight: 600 }}>{priceNote}</span>}
-        </div>
       </div>
       {items && <CheckList items={items} />}
       {note && <p className="note">{note}</p>}

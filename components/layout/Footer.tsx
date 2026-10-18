@@ -43,7 +43,6 @@ export function Footer() {
             <div className="ftr-links">
               <Link href={ROUTES.home}>{n('home')}</Link>
               <Link href={ROUTES.episodes}>{n('episodes')}</Link>
-              <Link href={ROUTES.guests}>{n('guests')}</Link>
               <Link href={ROUTES.about}>{n('about')}</Link>
               <Link href={ROUTES.contact}>{n('contact')}</Link>
             </div>
@@ -51,10 +50,8 @@ export function Footer() {
           <nav aria-labelledby="ftr-partner">
             <h4 id="ftr-partner">{t('partnerships')}</h4>
             <div className="ftr-links">
-              <Link href={ROUTES.beGuest}>{n('beGuest')}</Link>
               <Link href={ROUTES.packages}>{n('packages')}</Link>
               <Link href={ROUTES.brand}>{n('brand')}</Link>
-              <Link href={ROUTES.mediaKit}>{n('mediaKit')}</Link>
             </div>
           </nav>
           <div>
@@ -78,13 +75,6 @@ export function Footer() {
         </div>
         <div className="ftr-bottom">
           <span className="tiny">{t('bottom')}</span>
-          <Link
-            className="tiny"
-            href={ROUTES.privacy}
-            style={{ color: 'var(--text)', fontWeight: 600, minHeight: 44, display: 'inline-flex', alignItems: 'center' }}
-          >
-            {n('privacy')}
-          </Link>
         </div>
       </div>
     </footer>

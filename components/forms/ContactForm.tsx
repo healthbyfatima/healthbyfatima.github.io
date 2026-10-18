@@ -3,8 +3,7 @@
 import { useId, useState, type FormEvent, type ReactNode } from 'react';
 import { Check, ChevronDown, CircleAlert, MessageCircle, Send } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
-import { ROUTES, SITE } from '@/lib/site';
+import { SITE } from '@/lib/site';
 import { FORMS_ENABLED, submitContact, type FormKind } from '@/lib/contact';
 import { cn } from '@/lib/cn';
 
@@ -25,10 +24,8 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const HEAD: Record<FormKind, [string, string, string]> = {
   A: ['headA', 'subA', 'send'],
-  guest: ['headGuest', 'subGuest', 'send'],
   pkg: ['headPkg', 'subPkg', 'send'],
-  B: ['headB', 'subB', 'sendB'],
-  C: ['headC', 'subC', 'sendC']
+  B: ['headB', 'subB', 'sendB']
 };
 
 type Props = {
@@ -40,7 +37,7 @@ type Props = {
 };
 
 /**
- * ContactForm A (doctor / expert), its "guest" and "pkg" variants, B (sponsorship) and C (general).
+ * ContactForm A (doctor media package), its "pkg" variant and B (sponsorship).
  * States: empty, error (white 2px outline + icon + text, no red by design), sending, success.
  */
 export function ContactForm({ kind, partnershipTypes = [], demoState }: Props) {
@@ -51,7 +48,7 @@ export function ContactForm({ kind, partnershipTypes = [], demoState }: Props) {
   const [errors, setErrors] = useState<Record<string, string>>(
     demoState === 'error' ? { name: 'required', company: 'required', email: 'email', consent: 'consent' } : {}
   );
-  const [interest, setInterest] = useState(kind === 'pkg' ? 'p500' : 'guest');
+  const [interest, setInterest] = useState('p500');
 
   const id = (n: string) => `${uid}-${n}`;
   const [head, sub, cta] = HEAD[kind];
@@ -62,7 +59,7 @@ export function ContactForm({ kind, partnershipTypes = [], demoState }: Props) {
     { name: 'workplace', label: t('workplace'), placeholder: t('workplacePh'), autoComplete: 'organization' },
     { name: 'social', label: t('social'), placeholder: t('socialPh') },
     { name: 'topic', label: t('topic'), placeholder: t('topicPh'), full: true },
-    { name: 'phone', label: t('phone'), type: 'tel', placeholder: '+994', autoComplete: 'tel' },
+    { name: 'phone', label: t('phone'), type: 'tel', placeholder: '+994', required: true, autoComplete: 'tel' },
     { name: 'email', label: t('email'), type: 'email', placeholder: t('emailPh'), required: true, autoComplete: 'email' }
   ];
   const fieldsB: FieldDef[] = [
@@ -71,21 +68,16 @@ export function ContactForm({ kind, partnershipTypes = [], demoState }: Props) {
     { name: 'person', label: t('contactPerson'), placeholder: t('contactPersonPh'), required: true, autoComplete: 'name' },
     { name: 'position', label: t('position'), placeholder: t('positionPh'), autoComplete: 'organization-title' },
     { name: 'email', label: t('email'), type: 'email', placeholder: t('emailCompanyPh'), required: true, autoComplete: 'email' },
-    { name: 'phone', label: t('phone'), type: 'tel', placeholder: '+994', autoComplete: 'tel' }
+    { name: 'phone', label: t('phone'), type: 'tel', placeholder: '+994', required: true, autoComplete: 'tel' }
   ];
-  const fieldsC: FieldDef[] = [
-    { name: 'name', label: t('nameShort'), placeholder: t('nameShortPh'), required: true, autoComplete: 'name' },
-    { name: 'email', label: t('email'), type: 'email', placeholder: t('emailPh'), required: true, autoComplete: 'email' }
-  ];
-  const isA = kind === 'A' || kind === 'guest' || kind === 'pkg';
-  const fields = isA ? fieldsA : kind === 'B' ? fieldsB : fieldsC;
+  const fields = kind === 'B' ? fieldsB : fieldsA;
   const required = fields.filter((f) => f.required);
 
+  // Spotlight is an add-on: it cannot be chosen on its own.
   const interests = [
-    { value: 'guest', label: t('interestGuest') },
     { value: 'p500', label: t('interestP500') },
     { value: 'p800', label: t('interestP800') }
-  ].filter((o) => kind !== 'pkg' || o.value !== 'guest');
+  ];
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -178,7 +170,6 @@ export function ContactForm({ kind, partnershipTypes = [], demoState }: Props) {
           <p className="body" style={{ maxWidth: 420 }}>
             {t('successText')}
           </p>
-          <p className="tiny">{t('successMail')}</p>
           <button
             type="button"
             className="btn btn-ghost btn-sm auto"
@@ -194,47 +185,33 @@ export function ContactForm({ kind, partnershipTypes = [], demoState }: Props) {
     );
   }
 
-  let body: ReactNode;
-  if (isA) {
-    body = (
-      <div className="form">
-        {fieldsA.map(input)}
-        {kind !== 'guest' && (
-          <fieldset className="field full">
-            <legend className="flabel" style={{ marginBottom: 8, padding: 0 }}>
-              {t('interest')}
-            </legend>
-            <div className="radio-pills">
-              {interests.map((o) => (
-                <label key={o.value} className={cn('chip', interest === o.value && 'on')}>
-                  <input type="radio" name="interest" value={o.value} checked={interest === o.value} onChange={() => setInterest(o.value)} />
-                  {o.label}
-                </label>
-              ))}
-            </div>
-          </fieldset>
-        )}
-        {textarea('note', t('note'), t('notePh'))}
-      </div>
-    );
-  } else if (kind === 'B') {
-    body = (
+  const body: ReactNode =
+    kind === 'B' ? (
       <div className="form">
         {fieldsB.map(input)}
         {select('type', t('partnershipType'), partnershipTypes)}
         {input({ name: 'budget', label: t('budget'), placeholder: t('budgetPh'), full: true, optional: true })}
         {textarea('offer', t('offer'), t('offerPh'))}
       </div>
-    );
-  } else {
-    body = (
+    ) : (
       <div className="form">
-        {fieldsC.map(input)}
-        {select('subject', t('subject'), [t('subjectMedia'), t('subjectEvent'), t('subjectIntl'), t('subjectOther')])}
-        {textarea('message', t('message'), t('messagePh'))}
+        {fieldsA.map(input)}
+        <fieldset className="field full">
+          <legend className="flabel" style={{ marginBottom: 8, padding: 0 }}>
+            {t('interest')}
+          </legend>
+          <div className="radio-pills">
+            {interests.map((o) => (
+              <label key={o.value} className={cn('chip', interest === o.value && 'on')}>
+                <input type="radio" name="interest" value={o.value} checked={interest === o.value} onChange={() => setInterest(o.value)} />
+                {o.label}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        {textarea('note', t('note'), t('notePh'))}
       </div>
     );
-  }
 
   const sending = state === 'sending';
 
@@ -269,15 +246,7 @@ export function ContactForm({ kind, partnershipTypes = [], demoState }: Props) {
               aria-invalid={!!errors.consent || undefined}
               aria-describedby={errors.consent ? id('consent-err') : undefined}
             />
-            <span>
-              {t.rich('consent', {
-                link: (chunks) => (
-                  <Link href={ROUTES.privacy} target="_blank">
-                    {chunks}
-                  </Link>
-                )
-              })}
-            </span>
+            <span>{t('consent')}</span>
           </label>
           {errors.consent && <div style={{ paddingLeft: 34 }}>{errMsg('consent')}</div>}
         </div>

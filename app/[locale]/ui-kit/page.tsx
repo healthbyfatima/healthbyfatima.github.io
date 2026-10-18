@@ -9,7 +9,6 @@ import { CheckList } from '@/components/ui/CheckList';
 import { ComparisonTable } from '@/components/ui/ComparisonTable';
 import { EpisodeCard } from '@/components/ui/EpisodeCard';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { GuestCard } from '@/components/ui/GuestCard';
 import { PackageCard } from '@/components/ui/PackageCard';
 import { PathCard } from '@/components/ui/PathCard';
 
@@ -90,7 +89,6 @@ export default async function UiKit({ params }: { params: Promise<{ locale: Loca
               <button type="button" className="chip">Wellness</button>
             </div>
             <div className="row g12">
-              <span className="tag-sponsored">Sponsorlu</span>
               <span className="chip chip-sm chip-static">Səhiyyə siyasəti</span>
             </div>
           </Card>
@@ -107,18 +105,17 @@ export default async function UiKit({ params }: { params: Promise<{ locale: Loca
               <p className="card-text">Tünd kart, 1px şəffaf-göy çərçivə, radius 24.</p>
               <CheckList style={{ marginTop: 20 }} items={['CheckList elementi', 'İkinci element']} />
             </Card>
-            <PathCard href={ROUTES.beGuest} num="01" title="PathCard · blue" text="Bütün kart link kimi işləyir." cta="Ətraflı" className="!min-h-0" />
-            <PackageCard eyebrow="Paket 02" title="PackageCard" price="300 AZN" note="Əsas paketə daxil deyil, ayrıca sifariş olunur." />
+            <PathCard href={ROUTES.packages} num="01" title="PathCard · blue" text="Bütün kart link kimi işləyir." cta="Ətraflı" className="!min-h-0" />
+            <PackageCard eyebrow="Əlavə xidmət" title="PackageCard" note="Əsas paketə əlavə olaraq seçilə bilər." />
           </div>
         </section>
 
         <section className="stack g20">
-          <h2 className="h3">EpisodeCard · GuestCard</h2>
-          <div className="grid-4">
+          <h2 className="h3">EpisodeCard</h2>
+          <div className="grid-3">
             <EpisodeCard episode={ep} />
-            <EpisodeCard episode={{ ...ep, meta: '[Ad Soyad] · [Vəzifə]', topic: 'Səhiyyə idarəçiliyi', sponsored: true }} />
+            <EpisodeCard episode={{ ...ep, meta: '[Ad Soyad] · [Vəzifə]', topic: 'Səhiyyə idarəçiliyi' }} />
             <EpisodeCard episode={{ ...ep, topic: 'Wellness' }} />
-            <GuestCard guest={{ name: '[Ad Soyad]', title: '[İxtisas / vəzifə]', organization: '[Təşkilat]', category: 'Cərrah', href: ROUTES.episodes }} />
           </div>
         </section>
 
@@ -130,7 +127,6 @@ export default async function UiKit({ params }: { params: Promise<{ locale: Loca
               { label: 'Podcast müsahibəsi', a: true, b: true },
               { label: 'Fərdi həkim tanıtımı', a: false, b: true }
             ]}
-            footer={['Qiymət', '500 AZN', '800 AZN']}
           />
         </section>
       </div>

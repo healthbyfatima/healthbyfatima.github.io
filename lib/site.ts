@@ -17,23 +17,18 @@ export const LOGO = { src: '/brand/logo-white.svg', width: 3178, height: 1544 } 
 export const ROUTES = {
   home: '/',
   episodes: '/buraxilislar',
-  guests: '/qonaqlar',
   partnerships: '/emekdasliq',
-  beGuest: '/emekdasliq/qonaq-ol',
   packages: '/emekdasliq/media-paketleri',
   brand: '/emekdasliq/terefdasliq',
   about: '/haqqimizda',
-  contact: '/elaqe',
-  mediaKit: '/media-kit',
-  privacy: '/mexfilik'
+  contact: '/elaqe'
 } as const;
 
-export type NavKey = 'home' | 'episodes' | 'guests' | 'partnerships' | 'about' | 'contact';
+export type NavKey = 'home' | 'episodes' | 'partnerships' | 'about' | 'contact';
 
 export const MAIN_NAV: { key: NavKey; href: string }[] = [
   { key: 'home', href: ROUTES.home },
   { key: 'episodes', href: ROUTES.episodes },
-  { key: 'guests', href: ROUTES.guests },
   { key: 'partnerships', href: ROUTES.partnerships },
   { key: 'about', href: ROUTES.about },
   { key: 'contact', href: ROUTES.contact }

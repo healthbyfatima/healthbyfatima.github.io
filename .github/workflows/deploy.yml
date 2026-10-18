@@ -3,10 +3,13 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Daily rebuild picks up new YouTube episodes (06:00 UTC = 10:00 Baku).
+  schedule:
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -24,6 +27,18 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Fetch episodes from the YouTube RSS feed
+        run: npm run episodes
+      # Keeps the archive growing (the feed lists only the last 15 items).
+      # A push made with GITHUB_TOKEN does not start another workflow run.
+      - name: Save new episodes to the repo
+        run: |
+          if ! git diff --quiet content/episodes.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore: update episodes from YouTube RSS" content/episodes.json
+            git pull --rebase && git push
+          fi
       - id: pages
         uses: actions/configure-pages@v5
       - run: npm run build

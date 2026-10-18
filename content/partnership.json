@@ -15,12 +15,60 @@
     { "az": "Uzunmüddətli strateji tərəfdaşlıqlar", "en": "Long-term strategic partnerships", "ru": "Долгосрочные стратегические партнёрства" }
   ],
   "categories": [
-    { "icon": "shirt", "label": { "az": "Geyim", "en": "Apparel", "ru": "Одежда" } },
-    { "icon": "sparkles", "label": { "az": "Makiyaj və saç düzümü", "en": "Make-up and hair styling", "ru": "Макияж и укладка" } },
-    { "icon": "video", "label": { "az": "İstehsal studiyası", "en": "Production studio", "ru": "Продакшн-студия" } },
-    { "icon": "heart", "label": { "az": "Səhiyyə texnologiyaları", "en": "Health technology", "ru": "Медицинские технологии" } },
-    { "icon": "leaf", "label": { "az": "Wellness", "en": "Wellness", "ru": "Wellness" } },
-    { "icon": "education", "label": { "az": "Təhsil", "en": "Education", "ru": "Образование" } }
+    {
+      "icon": "hospital",
+      "label": { "az": "Klinikalar və səhiyyə müəssisələri", "en": "Clinics and healthcare institutions", "ru": "Клиники и медицинские учреждения" },
+      "text": {
+        "az": "Xəstəxanalar, klinikalar, laboratoriyalar və tibbi xidmət təminatçıları",
+        "en": "Hospitals, clinics, laboratories and medical service providers",
+        "ru": "Больницы, клиники, лаборатории и поставщики медицинских услуг"
+      }
+    },
+    {
+      "icon": "pulse",
+      "label": { "az": "Səhiyyə və tibbi texnologiyalar", "en": "Healthcare and medical technologies", "ru": "Здравоохранение и медицинские технологии" },
+      "text": {
+        "az": "Rəqəmsal səhiyyə, tibbi innovasiyalar və sağlamlıq texnologiyaları",
+        "en": "Digital health, medical innovation and health technologies",
+        "ru": "Цифровое здравоохранение, медицинские инновации и технологии для здоровья"
+      }
+    },
+    {
+      "icon": "leaf",
+      "label": { "az": "Wellness və sağlam həyat", "en": "Wellness and healthy living", "ru": "Wellness и здоровый образ жизни" },
+      "text": {
+        "az": "Qidalanma, fitness, sağlamlıq və həyat keyfiyyəti",
+        "en": "Nutrition, fitness, wellbeing and quality of life",
+        "ru": "Питание, фитнес, самочувствие и качество жизни"
+      }
+    },
+    {
+      "icon": "education",
+      "label": { "az": "Təhsil və peşəkar inkişaf", "en": "Education and professional development", "ru": "Образование и профессиональное развитие" },
+      "text": {
+        "az": "Universitetlər, təlim mərkəzləri və peşəkar inkişaf platformaları",
+        "en": "Universities, training centres and professional development platforms",
+        "ru": "Университеты, учебные центры и платформы профессионального развития"
+      }
+    },
+    {
+      "icon": "sparkles",
+      "label": { "az": "Gözəllik və şəxsi baxım", "en": "Beauty and personal care", "ru": "Красота и личный уход" },
+      "text": {
+        "az": "Estetik xidmətlər, kosmetologiya, makiyaj və saç düzümü",
+        "en": "Aesthetic services, cosmetology, make-up and hair styling",
+        "ru": "Эстетические услуги, косметология, макияж и укладка"
+      }
+    },
+    {
+      "icon": "shirt",
+      "label": { "az": "Moda və geyim", "en": "Fashion and apparel", "ru": "Мода и одежда" },
+      "text": {
+        "az": "Geyim brendləri, butiklər və stil tərəfdaşları",
+        "en": "Clothing brands, boutiques and style partners",
+        "ru": "Бренды одежды, бутики и стилевые партнёры"
+      }
+    }
   ],
   "partners": [
     {

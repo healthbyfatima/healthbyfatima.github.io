@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { GraduationCap, Heart, Leaf, Shirt, Sparkles, Video, type LucideIcon } from 'lucide-react';
+import { GraduationCap, HeartPulse, Hospital, Leaf, Shirt, Sparkles, type LucideIcon } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { ROUTES } from '@/lib/site';
@@ -16,7 +16,7 @@ import { ContactForm } from '@/components/forms/ContactForm';
 
 type Props = { params: Promise<{ locale: Locale }> };
 
-const CATEGORY_ICONS: Record<string, LucideIcon> = { shirt: Shirt, sparkles: Sparkles, video: Video, heart: Heart, leaf: Leaf, education: GraduationCap };
+const CATEGORY_ICONS: Record<string, LucideIcon> = { hospital: Hospital, pulse: HeartPulse, leaf: Leaf, education: GraduationCap, sparkles: Sparkles, shirt: Shirt };
 // Bento layout of the five directions: two wide cards, then three; 1st and 5th are blue.
 const DIRECTION_LAYOUT = [
   { span: 's6', blue: true },
@@ -38,7 +38,6 @@ export default async function BrandPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations('Brand');
   const tn = await getTranslations('Nav');
-  const tc = await getTranslations('Common');
   const tp = await getTranslations('Placeholder');
 
   const directions = partnership.directions.map((d) => loc(d, locale));
@@ -59,9 +58,6 @@ export default async function BrandPage({ params }: Props) {
             </p>
             <div className="row g12" style={{ marginTop: 8 }}>
               <ButtonLink href="#offer">{t('request')}</ButtonLink>
-              <ButtonLink href={ROUTES.mediaKit} variant="ghost">
-                {tc('mediaKit')}
-              </ButtonLink>
             </div>
           </div>
         </div>
@@ -100,7 +96,10 @@ export default async function BrandPage({ params }: Props) {
                   <IconCircle primary>
                     <Icon className="ic" aria-hidden />
                   </IconCircle>
-                  <h3 className="h4">{loc(c.label, locale)}</h3>
+                  <div className="stack g8">
+                    <h3 className="h4">{loc(c.label, locale)}</h3>
+                    <p className="small">{loc(c.text, locale)}</p>
+                  </div>
                 </article>
               );
             })}
@@ -144,7 +143,6 @@ export default async function BrandPage({ params }: Props) {
                 {t('request')}
               </h2>
               <p className="lead">{t('offerText')}</p>
-              <p className="small">{t('offerNote')}</p>
             </div>
             <ContactForm kind="B" partnershipTypes={directions} />
           </div>

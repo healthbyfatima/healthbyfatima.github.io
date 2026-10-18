@@ -1,26 +1,44 @@
 [
   {
-    "youtubeId": "",
-    "title": "",
-    "guestSlug": "guest-1",
-    "topics": ["clinical"],
-    "date": "",
-    "sponsored": false
+    "youtubeId": "RkQ5ehkh5BU",
+    "title": "Səhiyyədə Maliyyə | Aydan Hüseynli ilə maliyyə strategiyaları",
+    "date": "2026-10-16T15:31:46+00:00",
+    "guestSlug": "",
+    "topics": []
   },
   {
-    "youtubeId": "",
-    "title": "",
-    "guestSlug": "guest-3",
-    "topics": ["management"],
-    "date": "",
-    "sponsored": true
+    "youtubeId": "Ic93mpZ-ibw",
+    "title": "Ginekologiya | Qadın və Reproduktiv Sağlamlıq | Uzman Dr. Aygün Altun",
+    "date": "2026-10-03T19:59:45+00:00",
+    "guestSlug": "",
+    "topics": []
   },
   {
-    "youtubeId": "",
-    "title": "",
-    "guestSlug": "guest-4",
-    "topics": ["tech"],
-    "date": "",
-    "sponsored": false
+    "youtubeId": "hkH_Zvx-_sg",
+    "title": "Travma: Həkim, yoxsa sistem? | Uzman Dr. Şəhriyar Fətullayev",
+    "date": "2026-09-28T17:02:27+00:00",
+    "guestSlug": "",
+    "topics": []
+  },
+  {
+    "youtubeId": "3KYZX5CI7K0",
+    "title": "Rinoplastika: Gözəllik, Nəfəs və Risklər | Dr. Asif Sadat",
+    "date": "2026-09-21T17:24:17+00:00",
+    "guestSlug": "",
+    "topics": []
+  },
+  {
+    "youtubeId": "43Wko0Vswck",
+    "title": "Mənə Ən Çox Verdiyiniz Sualları Cavablandırdım |İctimai Səhiyyə, Xaricdə Təhsil, Bizneslərim",
+    "date": "2026-08-10T15:32:23+00:00",
+    "guestSlug": "",
+    "topics": []
+  },
+  {
+    "youtubeId": "D7ld4-3BMLo",
+    "title": "İctimai Səhiyyə nədir? Həkim sayılırıq? Harada işləyə bilərik? Bu ixtisasın gələcəyi varmı? 2026",
+    "date": "2026-07-13T20:05:46+00:00",
+    "guestSlug": "",
+    "topics": []
   }
 ]

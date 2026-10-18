@@ -5,7 +5,7 @@ type ComparisonTableProps = {
   caption?: string;
   headers: [string, string, string];
   rows: { label: string; a: boolean; b: boolean }[];
-  footer: [string, string, string];
+  footer?: [string, string, string];
 };
 
 /** Two-column comparison; the second column is highlighted. Fits 335px on phone. */
@@ -43,13 +43,15 @@ export function ComparisonTable({ caption, headers, rows, footer }: ComparisonTa
             </tr>
           ))}
         </tbody>
-        <tfoot>
-          <tr>
-            <td>{footer[0]}</td>
-            <td>{footer[1]}</td>
-            <td className="hl">{footer[2]}</td>
-          </tr>
-        </tfoot>
+        {footer && (
+          <tfoot>
+            <tr>
+              <td>{footer[0]}</td>
+              <td>{footer[1]}</td>
+              <td className="hl">{footer[2]}</td>
+            </tr>
+          </tfoot>
+        )}
       </table>
     </div>
   );

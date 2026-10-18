@@ -1,13 +1,10 @@
 {
-  "currency": "AZN",
   "packages": [
     {
       "id": "podcast",
-      "price": 500,
-      "eyebrow": { "az": "Paket 01 · Əsas paket", "en": "Package 01 · Core package", "ru": "Пакет 01 · Основной пакет" },
+      "eyebrow": { "az": "Əsas paket", "en": "Core package", "ru": "Основной пакет" },
       "badge": { "az": "Bir buraxılış", "en": "One episode", "ru": "Один выпуск" },
       "title": { "az": "Health by Fatima Podcast", "en": "Health by Fatima Podcast", "ru": "Health by Fatima Podcast" },
-      "priceNote": { "az": "/ bir buraxılış", "en": "/ per episode", "ru": "/ за выпуск" },
       "items": {
         "az": [
           "Dr. Fatimə Nuriyeva ilə podcast müsahibəsinin çəkilişi",
@@ -41,9 +38,8 @@
     },
     {
       "id": "spotlight",
-      "price": 300,
-      "eyebrow": { "az": "Paket 02 · Əlavə xidmət", "en": "Package 02 · Add-on service", "ru": "Пакет 02 · Дополнительная услуга" },
-      "badge": { "az": "Ayrıca sifariş", "en": "Ordered separately", "ru": "Заказывается отдельно" },
+      "eyebrow": { "az": "Əlavə xidmət", "en": "Add-on service", "ru": "Дополнительная услуга" },
+      "badge": { "az": "Yalnız əsas paketlə", "en": "With the core package only", "ru": "Только с основным пакетом" },
       "title": {
         "az": "Doctor Spotlight — fərdi həkim tanıtımı",
         "en": "Doctor Spotlight — individual doctor profile",
@@ -70,14 +66,13 @@
         ]
       },
       "note": {
-        "az": "Əsas paketə daxil deyil, ayrıca sifariş olunur.",
-        "en": "Not included in the core package; ordered separately.",
-        "ru": "Не входит в основной пакет, заказывается отдельно."
+        "az": "Əsas paketə əlavə olaraq seçilə bilər.",
+        "en": "Can be added to the core package.",
+        "ru": "Можно добавить к основному пакету."
       },
       "cta": { "az": "Spotlight əlavə et", "en": "Add Spotlight", "ru": "Добавить Spotlight" }
     }
   ],
-  "bundlePrice": 800,
   "comparison": [
     { "label": { "az": "Podcast müsahibəsi", "en": "Podcast interview", "ru": "Подкаст-интервью" }, "podcast": true, "bundle": true },
     { "label": { "az": "Tam YouTube buraxılışı", "en": "Full YouTube episode", "ru": "Полный выпуск на YouTube" }, "podcast": true, "bundle": true },
@@ -120,22 +115,5 @@
       "label": { "az": "Məkan", "en": "Location", "ru": "Место" },
       "value": { "az": "Peşəkar podcast studiyası", "en": "Professional podcast studio", "ru": "Профессиональная подкаст-студия" }
     }
-  ],
-  "terms": {
-    "az": [
-      "Başlanğıc qiymətləri layihənin ilkin mərhələsi üçün keçərlidir.",
-      "Yalnız podcast paketini və ya hər iki xidməti seçmək olar.",
-      "Çəkiliş tarixi, mövzular, suallar və paylaşım formatı əvvəlcədən razılaşdırılır."
-    ],
-    "en": [
-      "Introductory prices apply to the project’s early stage.",
-      "You can choose the podcast package alone or both services.",
-      "The recording date, topics, questions and publishing format are agreed in advance."
-    ],
-    "ru": [
-      "Стартовые цены действуют на начальном этапе проекта.",
-      "Можно выбрать только подкаст-пакет или обе услуги.",
-      "Дата съёмки, темы, вопросы и формат публикаций согласовываются заранее."
-    ]
-  }
+  ]
 }

@@ -7,11 +7,10 @@ import { useTranslations } from 'next-intl';
 export type EpisodeCardData = {
   youtubeId: string;
   title: string;
-  /** "[Ad Soyad] · [İxtisas]" line under the title. */
+  /** "Ad Soyad · İxtisas" line under the title; empty until the guest is filled in. */
   meta: string;
-  /** Localised topic label for the chip. */
-  topic: string;
-  sponsored?: boolean;
+  /** Localised topic label for the chip; absent until a topic is set. */
+  topic?: string;
 };
 
 const isRealId = (id: string) => /^[\w-]{11}$/.test(id);
@@ -19,7 +18,6 @@ const isRealId = (id: string) => /^[\w-]{11}$/.test(id);
 /** Lite YouTube embed: thumbnail + play button; the iframe loads only after a click. */
 export function EpisodeCard({ episode }: { episode: EpisodeCardData }) {
   const t = useTranslations('Episode');
-  const tc = useTranslations('Common');
   const [playing, setPlaying] = useState(false);
   const real = isRealId(episode.youtubeId);
 
@@ -52,7 +50,6 @@ export function EpisodeCard({ episode }: { episode: EpisodeCardData }) {
           ) : (
             <span className="ph-label">{t('thumbPlaceholder')}</span>
           )}
-          {episode.sponsored && <span className="tag-sponsored">{tc('sponsored')}</span>}
           <span className="play">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M8 5v14l11-7z" />
@@ -61,16 +58,13 @@ export function EpisodeCard({ episode }: { episode: EpisodeCardData }) {
         </button>
       )}
       <div className="ep-body">
-        <div className="row g8">
-          <span className="chip chip-sm chip-static">{episode.topic}</span>
-          {episode.sponsored && (
-            <span className="tiny" style={{ fontWeight: 600 }}>
-              {tc('paidPartnership')}
-            </span>
-          )}
-        </div>
+        {episode.topic && (
+          <div className="row g8">
+            <span className="chip chip-sm chip-static">{episode.topic}</span>
+          </div>
+        )}
         <h3 className="ep-title">{episode.title}</h3>
-        <p className="ep-meta">{episode.meta}</p>
+        {episode.meta && <p className="ep-meta">{episode.meta}</p>}
       </div>
     </article>
   );

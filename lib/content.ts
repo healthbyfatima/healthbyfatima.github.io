@@ -23,9 +23,8 @@ export type Episode = {
   title: string;
   guestSlug: string;
   topics: Topic[];
-  /** ISO date; empty for placeholders. */
+  /** ISO date from the YouTube feed. Filled by scripts/fetch-episodes.mjs. */
   date: string;
-  sponsored: boolean;
 };
 
 export type Guest = {
@@ -50,6 +49,19 @@ export function latestEpisodes(n: number) {
 }
 
 export const guestBySlug = (slug: string) => guests.find((g) => g.slug === slug);
+
+/** EpisodeCard data; the guest line and topic chip appear only once they are filled in content/episodes.json. */
+export function episodeCard(ep: Episode, topicLabel: (t: Topic) => string) {
+  const g = guestBySlug(ep.guestSlug);
+  const topic = ep.topics[0];
+  return {
+    youtubeId: ep.youtubeId,
+    title: ep.title,
+    meta: g ? [g.name, g.title].filter(Boolean).join(' · ') : '',
+    topic: topic ? topicLabel(topic) : undefined,
+    topicKey: topic ?? ''
+  };
+}
 
 /** True when the file exists under public/ — used for partner logos that may be added later. */
 export function publicFileExists(src: string) {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { Clock, Info, ListChecks, MessageSquare, Mic, ShieldCheck, type LucideIcon } from 'lucide-react';
+import { Clock, ListChecks, MessageSquare, Mic, type LucideIcon } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { ROUTES } from '@/lib/site';
@@ -34,7 +34,6 @@ export default async function PackagesPage({ params }: Props) {
   const tn = await getTranslations('Nav');
   const tp = await getTranslations('Placeholder');
 
-  const money = (n: number) => `${n} ${packages.currency}`;
   const [podcast, spotlight] = packages.packages;
   const hasLogo = publicFileExists(HEKIM_BURADA_LOGO);
 
@@ -50,10 +49,6 @@ export default async function PackagesPage({ params }: Props) {
             <p className="lead" style={{ maxWidth: 760 }}>
               {t('lead')}
             </p>
-            <p className="notice">
-              <Info className="ic sm" aria-hidden />
-              {t('notice')}
-            </p>
           </div>
         </div>
       </section>
@@ -68,8 +63,6 @@ export default async function PackagesPage({ params }: Props) {
               eyebrow={loc(podcast.eyebrow, locale)}
               badge={loc(podcast.badge, locale)}
               title={loc(podcast.title, locale)}
-              price={money(podcast.price)}
-              priceNote={podcast.priceNote && loc(podcast.priceNote, locale)}
               items={podcast.items[locale]}
             >
               <ButtonLink href="#apply" className="mt-auto">
@@ -81,7 +74,6 @@ export default async function PackagesPage({ params }: Props) {
               eyebrow={loc(spotlight.eyebrow, locale)}
               badge={loc(spotlight.badge, locale)}
               title={loc(spotlight.title, locale)}
-              price={money(spotlight.price)}
               items={spotlight.items[locale]}
               note={spotlight.note && loc(spotlight.note, locale)}
             >
@@ -101,7 +93,6 @@ export default async function PackagesPage({ params }: Props) {
             caption={t('compareTitle')}
             headers={[t('colService'), t('colPodcast'), t('colBundle')]}
             rows={packages.comparison.map((r) => ({ label: loc(r.label, locale), a: r.podcast, b: r.bundle }))}
-            footer={[t('price'), money(podcast.price), money(packages.bundlePrice)]}
           />
         </div>
       </section>
@@ -164,27 +155,6 @@ export default async function PackagesPage({ params }: Props) {
               </div>
             </div>
           </article>
-        </div>
-      </section>
-
-      {/* Şərtlər */}
-      <section className="section tight" aria-labelledby="terms-h">
-        <div className="wrap">
-          <SectionHead id="terms-h" eyebrow={t('termsEyebrow')} title={t('termsTitle')} />
-          <div className="grid-2">
-            <article className="card">
-              <CheckList items={packages.terms[locale]} />
-            </article>
-            <article className="card" style={{ display: 'flex', gap: 18, alignItems: 'flex-start' }}>
-              <IconCircle primary>
-                <ShieldCheck className="ic" aria-hidden />
-              </IconCircle>
-              <div className="stack g8">
-                <h3 className="h4">{t('transparencyTitle')}</h3>
-                <p className="body">{t('notice')}</p>
-              </div>
-            </article>
-          </div>
         </div>
       </section>
 
