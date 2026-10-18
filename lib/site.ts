@@ -12,6 +12,9 @@ export const SITE = {
   linkedin: 'https://www.linkedin.com/in/fatima-nuriyeva-2bb002314'
 } as const;
 
+// Həkim Burada joint offer — hidden until the partnership is active.
+export const HEKIM_BURADA_ENABLED = false;
+
 export const LOGO = { src: '/brand/logo-white.svg', width: 3178, height: 1544 } as const;
 
 export const ROUTES = {

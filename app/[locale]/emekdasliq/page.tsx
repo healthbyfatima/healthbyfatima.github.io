@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Handshake, Video } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
-import { ROUTES } from '@/lib/site';
+import { HEKIM_BURADA_ENABLED, ROUTES } from '@/lib/site';
 import { pageMetadata } from '@/lib/seo';
 import { IconCircle } from '@/components/ui/Card';
 import { CheckList } from '@/components/ui/CheckList';
@@ -51,7 +51,7 @@ export default async function PartnershipsPage({ params }: Props) {
               text={t('packagesText')}
               cta={t('packagesCta')}
             >
-              <CheckList items={[t('packagesPoint1'), t('packagesPoint2')]} />
+              <CheckList items={HEKIM_BURADA_ENABLED ? [t('packagesPoint1'), t('packagesPoint2')] : [t('packagesPoint1')]} />
             </PathCard>
             <PathCard
               href={ROUTES.brand}

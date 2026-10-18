@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Clock, ListChecks, MessageSquare, Mic, type LucideIcon } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
-import { ROUTES } from '@/lib/site';
+import { HEKIM_BURADA_ENABLED, ROUTES } from '@/lib/site';
 import { pageMetadata } from '@/lib/seo';
 import { loc, packages, publicFileExists } from '@/lib/content';
 import { ButtonLink } from '@/components/ui/Button';
@@ -123,6 +123,7 @@ export default async function PackagesPage({ params }: Props) {
       </section>
 
       {/* Həkim Burada */}
+      {HEKIM_BURADA_ENABLED && (
       <section className="section tight">
         <div className="wrap">
           <article className="card card-blue pad-lg">
@@ -157,6 +158,7 @@ export default async function PackagesPage({ params }: Props) {
           </article>
         </div>
       </section>
+      )}
 
       {/* Forma */}
       <section className="section" id="apply" aria-labelledby="apply-h">
