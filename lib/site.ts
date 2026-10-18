@@ -7,8 +7,8 @@ export const SITE = {
   youtube: 'https://www.youtube.com/@FatimaNuriyeva1',
   instagram: 'https://www.instagram.com/healthbyfatima',
   instagramHandle: '@healthbyfatima',
-  instagramFounder: 'https://www.instagram.com/fatimanuriyeva1',
-  instagramFounderHandle: '@fatimanuriyeva1',
+  instagramFounder: 'https://www.instagram.com/dr.fatimanuriyeva',
+  instagramFounderHandle: '@dr.fatimanuriyeva',
   linkedin: 'https://www.linkedin.com/in/fatima-nuriyeva-2bb002314'
 } as const;
 

@@ -111,7 +111,7 @@ export default async function BrandPage({ params }: Props) {
       {partnership.partners.length > 0 && (
         <section className="section tight" aria-labelledby="partners-h">
           <div className="wrap">
-            <SectionHead id="partners-h" eyebrow={t('partnersEyebrow')} title={t('partnersTitle')} />
+            <SectionHead id="partners-h" title={t('partnersTitle')} />
             <div className="grid-4">
               {partnership.partners.map((p) => (
                 <article key={p.name} className="card stack g16" style={{ alignItems: 'center', textAlign: 'center' }}>

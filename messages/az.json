@@ -165,8 +165,7 @@
     "directionsTitle": "Necə birlikdə işləyə bilərik",
     "categoriesEyebrow": "Tərəfdaş kateqoriyaları",
     "categoriesTitle": "Kimlərlə əməkdaşlıq edirik",
-    "partnersEyebrow": "Tərəfdaşlarımız",
-    "partnersTitle": "Bizimlə işləyənlər",
+    "partnersTitle": "Tərəfdaşlarımız",
     "offerEyebrow": "Təklif",
     "offerText": "Brendiniz və məqsədləriniz barədə qısa məlumat göndərin."
   },
@@ -258,11 +257,8 @@
   },
   "About": {
     "eyebrow": "Haqqımızda",
-    "title": "Səhiyyəyə 360° baxış",
-    "sub": "Qurucu-aparıcısı olan müstəqil səhiyyə media layihəsi.",
+    "title": "Səhiyyəyə çoxşaxəli baxış, vahid platforma",
     "heroAlt": "Dr. Fatimə Nuriyeva — Health by Fatima-nın qurucusu və aparıcısı, studiyada",
-    "projectEyebrow": "Layihə",
-    "projectTitle": "Səhiyyəyə çoxşaxəli baxış, vahid platforma",
     "projectText": "Health by Fatima səhiyyə, klinik təcrübə, səhiyyə idarəçiliyi, sağlamlıq siyasəti və innovasiyaları müxtəlif perspektivlərdən işıqlandıran müstəqil media layihəsidir. Həkimləri, səhiyyə rəhbərlərini, tədqiqatçıları və müxtəlif sahələrin mütəxəssislərini bir araya gətirərək peşəkar bilik və təcrübənin daha geniş auditoriyaya çatdırılmasını hədəfləyir.",
     "missionLabel": "Missiya",
     "missionText": "Elmi biliklərin və peşəkar təcrübənin paylaşılmasına, sağlamlıq savadlılığının artırılmasına və səhiyyənin inkişafına dair müzakirələrin genişləndirilməsinə töhfə vermək.",

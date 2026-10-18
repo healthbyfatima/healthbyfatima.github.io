@@ -1,12 +1,12 @@
-// Pulls the latest videos from the YouTube RSS feed (no API key) into content/episodes.json.
+// Pulls the latest videos from the podcast playlist RSS feed (no API key) into content/episodes.json.
 // - Shorts are skipped; only full episodes are kept.
 // - Existing entries are kept (the feed only lists the last 15 items), so the archive grows over time.
 // - Hand-filled fields (topics, guestSlug) are never overwritten.
 // - If the feed is unreachable the file is left as is and the build continues.
 import fs from 'node:fs';
 
-const CHANNEL_ID = 'UCUbsKSxN1xFBFmHVNNX1P1A'; // @FatimaNuriyeva1
-const FEED = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+const PLAYLIST_ID = 'PLRUQI-WUvRCM'; // "Health by Fatima - Podcast" playlist — only podcast episodes
+const FEED = `https://www.youtube.com/feeds/videos.xml?playlist_id=${PLAYLIST_ID}`;
 const FILE = new URL('../content/episodes.json', import.meta.url);
 
 const decode = (s) =>
