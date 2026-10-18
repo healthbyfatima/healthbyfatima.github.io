@@ -182,6 +182,7 @@
     "sending": "Göndərilir…",
     "alertTitle": "Forma göndərilmədi.",
     "alertText": "Zəhmət olmasa işarələnmiş sahələri doldurun.",
+    "sendFailed": "Bir az sonra yenidən cəhd edin və ya WhatsApp ilə yazın.",
     "required": "Bu sahə mütləqdir",
     "emailInvalid": "Düzgün e-poçt ünvanı daxil edin",
     "consentRequired": "Davam etmək üçün razılıq tələb olunur",

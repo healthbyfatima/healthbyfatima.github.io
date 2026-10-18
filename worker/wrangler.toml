@@ -1,0 +1,10 @@
+name = "hbf-forms"
+main = "index.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+# "Health by Fatima — Müraciətlər" Telegram group
+CHAT_ID = "-5445283772"
+ALLOWED_ORIGINS = "https://healthbyfatima.com,https://www.healthbyfatima.com,http://localhost:3000"
+
+# Secret (not in git): npx wrangler secret put BOT_TOKEN

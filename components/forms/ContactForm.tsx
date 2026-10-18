@@ -226,7 +226,7 @@ export function ContactForm({ kind, partnershipTypes = [], demoState }: Props) {
           <div className="form-alert" role="alert">
             <CircleAlert className="ic" aria-hidden />
             <span>
-              <b>{t('alertTitle')}</b> {t('alertText')}
+              <b>{t('alertTitle')}</b> {Object.keys(errors).length ? t('alertText') : t('sendFailed')}
             </span>
           </div>
         )}

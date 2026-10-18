@@ -182,6 +182,7 @@
     "sending": "Sending…",
     "alertTitle": "The form was not sent.",
     "alertText": "Please complete the highlighted fields.",
+    "sendFailed": "Please try again in a moment or message us on WhatsApp.",
     "required": "This field is required",
     "emailInvalid": "Enter a valid email address",
     "consentRequired": "Your consent is required to continue",

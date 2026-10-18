@@ -17,3 +17,6 @@ docs/
 
 # oh-my-claudecode working state
 .omc/
+
+# Cloudflare Worker local state
+.wrangler/
