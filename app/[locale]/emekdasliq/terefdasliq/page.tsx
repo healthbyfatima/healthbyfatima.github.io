@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { GraduationCap, HeartPulse, Hospital, Leaf, Shirt, Sparkles, type LucideIcon } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { ROUTES } from '@/lib/site';
 import { pageMetadata } from '@/lib/seo';
-import { loc, partnership, publicFileExists } from '@/lib/content';
+import { loc, partnership } from '@/lib/content';
 import { cn } from '@/lib/cn';
 import { ButtonLink } from '@/components/ui/Button';
 import { CardGlow, IconCircle } from '@/components/ui/Card';
@@ -38,7 +37,6 @@ export default async function BrandPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations('Brand');
   const tn = await getTranslations('Nav');
-  const tp = await getTranslations('Placeholder');
 
   const directions = partnership.directions.map((d) => loc(d, locale));
 
@@ -106,32 +104,6 @@ export default async function BrandPage({ params }: Props) {
           </div>
         </div>
       </section>
-
-      {/* Tərəfdaşlar — hidden while content/partnership.json has none */}
-      {partnership.partners.length > 0 && (
-        <section className="section tight" aria-labelledby="partners-h">
-          <div className="wrap">
-            <SectionHead id="partners-h" title={t('partnersTitle')} />
-            <div className="grid-4">
-              {partnership.partners.map((p) => (
-                <article key={p.name} className="card stack g16" style={{ alignItems: 'center', textAlign: 'center' }}>
-                  <div className="logo-slot" style={{ width: '100%', height: 120 }}>
-                    {publicFileExists(p.logo) ? (
-                      <Image src={p.logo} alt={p.name} width={200} height={80} style={{ maxHeight: 80, width: 'auto' }} />
-                    ) : (
-                      <div className="stack g8" style={{ alignItems: 'center' }}>
-                        <span className="partner-name">{p.name}</span>
-                        <span className="tiny">{tp('logo')}</span>
-                      </div>
-                    )}
-                  </div>
-                  <span className="chip chip-sm chip-static">{loc(p.role, locale)}</span>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Forma B */}
       <section className="section" id="offer" aria-labelledby="offer-h">

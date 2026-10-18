@@ -73,7 +73,10 @@
   "partners": [
     {
       "name": "Y Pod",
-      "logo": "",
+      "logo": "/partners/ypod.svg",
+      "instagram": "https://www.instagram.com/ypod.az",
+      "website": "https://ypodaz.github.io",
+      "phone": "+994 55 530 35 32",
       "role": { "az": "İstehsal studiyası", "en": "Production studio", "ru": "Продакшн-студия" }
     }
   ]

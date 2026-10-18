@@ -1,13 +1,19 @@
 import type { Metadata } from 'next';
-import { Handshake, Video } from 'lucide-react';
+import Image from 'next/image';
+import { Globe, Handshake, Phone, Video } from 'lucide-react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { HEKIM_BURADA_ENABLED, ROUTES } from '@/lib/site';
 import { pageMetadata } from '@/lib/seo';
+import { loc, partnership, publicFileExists } from '@/lib/content';
 import { IconCircle } from '@/components/ui/Card';
 import { CheckList } from '@/components/ui/CheckList';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { PathCard } from '@/components/ui/PathCard';
+import { SectionHead } from '@/components/ui/Section';
+import { InstagramIcon } from '@/components/icons/Social';
+
+const ext = { target: '_blank', rel: 'noopener noreferrer' } as const;
 
 type Props = { params: Promise<{ locale: Locale }> };
 
@@ -67,6 +73,48 @@ export default async function PartnershipsPage({ params }: Props) {
           </div>
         </div>
       </section>
+      {/* Tərəfdaşlar — hidden while content/partnership.json has none */}
+      {partnership.partners.length > 0 && (
+        <section className="section tight" aria-labelledby="partners-h">
+          <div className="wrap">
+            <SectionHead id="partners-h" title={t('partnersTitle')} />
+            <div className="grid-3">
+              {partnership.partners.map((p) => (
+                <article key={p.name} className="card stack g16" style={{ alignItems: 'center', textAlign: 'center' }}>
+                  <div style={{ width: '100%', height: 96, display: 'grid', placeItems: 'center' }}>
+                    {publicFileExists(p.logo) ? (
+                      <Image src={p.logo} alt={p.name} width={200} height={80} style={{ height: 80, width: 'auto' }} />
+                    ) : (
+                      <span className="partner-name">{p.name}</span>
+                    )}
+                  </div>
+                  <span className="chip chip-sm chip-static">{loc(p.role, locale)}</span>
+                  <div className="row g12" style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
+                    {p.instagram && (
+                      <a className="btn btn-ghost btn-sm auto" href={p.instagram} {...ext}>
+                        <InstagramIcon />
+                        Instagram
+                      </a>
+                    )}
+                    {p.website && (
+                      <a className="btn btn-ghost btn-sm auto" href={p.website} {...ext}>
+                        <Globe className="ic sm" aria-hidden />
+                        {t('partnersWebsite')}
+                      </a>
+                    )}
+                    {p.phone && (
+                      <a className="btn btn-ghost btn-sm auto" href={`tel:${p.phone.replace(/\s/g, '')}`}>
+                        <Phone className="ic sm" aria-hidden />
+                        {p.phone}
+                      </a>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

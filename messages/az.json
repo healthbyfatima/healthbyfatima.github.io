@@ -132,7 +132,9 @@
     "brandText": "Səhiyyə, biznes, innovasiya, wellness və təhsil sahəsindəki şirkətlər üçün sponsorluq və birgə kontent.",
     "brandPoint1": "Epizod və layihə sponsorluğu",
     "brandPoint2": "Brend inteqrasiyası",
-    "brandCta": "Təklif göndər"
+    "brandCta": "Təklif göndər",
+    "partnersTitle": "Tərəfdaşlarımız",
+    "partnersWebsite": "Sayt"
   },
   "Packages": {
     "eyebrow": "Həkimlər üçün",
@@ -165,7 +167,6 @@
     "directionsTitle": "Necə birlikdə işləyə bilərik",
     "categoriesEyebrow": "Tərəfdaş kateqoriyaları",
     "categoriesTitle": "Kimlərlə əməkdaşlıq edirik",
-    "partnersTitle": "Tərəfdaşlarımız",
     "offerEyebrow": "Təklif",
     "offerText": "Brendiniz və məqsədləriniz barədə qısa məlumat göndərin."
   },

@@ -132,7 +132,9 @@
     "brandText": "Sponsorship and co-created content for companies in healthcare, business, innovation, wellness and education.",
     "brandPoint1": "Episode and project sponsorship",
     "brandPoint2": "Brand integration",
-    "brandCta": "Send a proposal"
+    "brandCta": "Send a proposal",
+    "partnersTitle": "Our partners",
+    "partnersWebsite": "Website"
   },
   "Packages": {
     "eyebrow": "For doctors",
@@ -165,7 +167,6 @@
     "directionsTitle": "How we can work together",
     "categoriesEyebrow": "Partner categories",
     "categoriesTitle": "Who we work with",
-    "partnersTitle": "Our partners",
     "offerEyebrow": "Proposal",
     "offerText": "Send us a short note about your brand and goals."
   },
