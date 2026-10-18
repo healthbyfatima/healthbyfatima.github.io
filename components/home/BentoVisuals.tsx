@@ -2,12 +2,17 @@
 
 import { useEffect, useState, type ReactNode } from 'react';
 import Image from 'next/image';
-import { motion, useTransform, type MotionValue } from 'framer-motion';
+import { domMin, LazyMotion, m, useTransform, type MotionValue } from 'framer-motion';
 import { Camera, Film, Mic, Plus } from 'lucide-react';
 import { InstagramIcon, StoriesIcon, YoutubeIcon } from '@/components/icons/Social';
 import { useLiveMotion, useLoop } from '@/lib/useLoop';
 import { LOGO } from '@/lib/site';
 import { cn } from '@/lib/cn';
+
+/** Loads only the motion features the bento needs (MotionValue styles) instead of the full `motion` bundle. */
+export function BentoMotion({ children }: { children: ReactNode }) {
+  return <LazyMotion features={domMin}>{children}</LazyMotion>;
+}
 
 /* 1 · Orbit — inner ring 60s, outer ring 80s reversed; labels stay upright. */
 
@@ -16,18 +21,18 @@ type OrbitLabel = { angle: number; icon: ReactNode; label: string };
 function OrbitRing({ radius, labels, spin }: { radius: number; labels: OrbitLabel[]; spin: MotionValue<number> }) {
   const upright = useTransform(spin, (v) => -v);
   return (
-    <motion.div className="o-spin" style={{ rotate: spin }}>
+    <m.div className="o-spin" style={{ rotate: spin }}>
       {labels.map((l) => (
         <div key={l.label} className="o-pos" style={{ transform: `rotate(${l.angle}deg) translateX(${radius}px) rotate(${-l.angle}deg)` }}>
-          <motion.div className="o-spin" style={{ rotate: upright }}>
+          <m.div className="o-spin" style={{ rotate: upright }}>
             <div className="o-label">
               <span className="icon-circle sm">{l.icon}</span>
               {l.label}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       ))}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -92,12 +97,12 @@ function MarqueeRow({ chips, seconds, reverse, active }: { chips: string[]; seco
   );
   return (
     <div className="mq-row">
-      <motion.div className="mq-track" style={{ x }}>
+      <m.div className="mq-track" style={{ x }}>
         {track}
-      </motion.div>
-      <motion.div className="mq-track" style={{ x }}>
+      </m.div>
+      <m.div className="mq-track" style={{ x }}>
         {track}
-      </motion.div>
+      </m.div>
     </div>
   );
 }
@@ -153,7 +158,7 @@ function FlowPath({ d, delay, progress }: { d: string; delay: number; progress: 
     const local = (((p - delay / FLOW_SECONDS) % 1) + 1) % 1;
     return DASH * (1 - local);
   });
-  return <motion.path className="flow" d={d} style={{ strokeDashoffset: offset }} />;
+  return <m.path className="flow" d={d} style={{ strokeDashoffset: offset }} />;
 }
 
 export function Tree({ top, leaves }: { top: string; leaves: string[] }) {
@@ -199,7 +204,7 @@ export function Shield() {
   const opacity = useTransform(wave, (w) => 0.65 + 0.35 * w);
   return (
     <div ref={ref} className="shield-wrap" style={{ background: 'var(--grad-card)' }} aria-hidden>
-      <motion.div className="breath" style={{ scale, opacity }} />
+      <m.div className="breath" style={{ scale, opacity }} />
       <svg viewBox="0 0 200 230">
         <defs>
           <linearGradient id="shield-grad" x1="0" y1="0" x2="0" y2="1">

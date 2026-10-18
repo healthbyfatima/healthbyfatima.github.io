@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/root-redirect.mjs",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "episodes": "node scripts/fetch-episodes.mjs"

@@ -16,7 +16,8 @@ export type EpisodeCardData = {
 const isRealId = (id: string) => /^[\w-]{11}$/.test(id);
 
 /** Lite YouTube embed: thumbnail + play button; the iframe loads only after a click. */
-export function EpisodeCard({ episode }: { episode: EpisodeCardData }) {
+/** `priority` — first card above the fold: load its thumbnail eagerly (it is the mobile LCP). */
+export function EpisodeCard({ episode, priority = false }: { episode: EpisodeCardData; priority?: boolean }) {
   const t = useTranslations('Episode');
   const [playing, setPlaying] = useState(false);
   const real = isRealId(episode.youtubeId);
@@ -46,6 +47,7 @@ export function EpisodeCard({ episode }: { episode: EpisodeCardData }) {
               alt=""
               fill
               sizes="(min-width: 768px) 400px, 100vw"
+              priority={priority}
             />
           ) : (
             <span className="ph-label">{t('thumbPlaceholder')}</span>

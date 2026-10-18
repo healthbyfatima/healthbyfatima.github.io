@@ -14,7 +14,7 @@ import { FounderBlock } from '@/components/ui/FounderBlock';
 import { SectionHead } from '@/components/ui/Section';
 import { EpisodeCard } from '@/components/ui/EpisodeCard';
 import { PathCard } from '@/components/ui/PathCard';
-import { Marquee, Orbit, Shield, Tree, VerticalCarousel } from '@/components/home/BentoVisuals';
+import { BentoMotion, Marquee, Orbit, Shield, Tree, VerticalCarousel } from '@/components/home/BentoVisuals';
 import { CollabMenu } from '@/components/home/CollabMenu';
 
 type Props = { params: Promise<{ locale: Locale }> };
@@ -86,7 +86,7 @@ export default async function HomePage({ params }: Props) {
           <SectionHead id="latest-h" eyebrow={t('latestEyebrow')} title={t('latestTitle')} action={<ArrowLink href={ROUTES.episodes}>{tc('all')}</ArrowLink>} />
           <div className="grid-3">
             {episodes.map((ep, i) => (
-              <EpisodeCard key={ep.youtubeId || i} episode={ep} />
+              <EpisodeCard key={ep.youtubeId || i} episode={ep} priority={i === 0} />
             ))}
           </div>
         </div>
@@ -96,6 +96,7 @@ export default async function HomePage({ params }: Props) {
       <section className="section" aria-labelledby="bento-h">
         <div className="wrap">
           <SectionHead id="bento-h" eyebrow={t('bentoEyebrow')} title={t('bentoTitle')} />
+          <BentoMotion>
           <div className="bento-cols">
             <div className="bento-col">
               <article className="card bcard">
@@ -146,6 +147,7 @@ export default async function HomePage({ params }: Props) {
               </article>
             </div>
           </div>
+          </BentoMotion>
         </div>
       </section>
 

@@ -45,7 +45,7 @@ export function EpisodeBrowser({ episodes, topics }: { episodes: BrowsableEpisod
       </p>
       <div className="grid-3">
         {list.map((e, i) => (
-          <EpisodeCard key={e.youtubeId || i} episode={e} />
+          <EpisodeCard key={e.youtubeId || i} episode={e} priority={i === 0} />
         ))}
       </div>
       {list.length === 0 && (
